@@ -31,6 +31,7 @@ export class BowlingComponent {
     if (this.form.valid) {
       this.scores.add(this.form.getRawValue());
       this.form.setValue({ first: null, second: null});
+      this.form.markAsUntouched();
     } else {
       this.form.markAllAsTouched();
     }
