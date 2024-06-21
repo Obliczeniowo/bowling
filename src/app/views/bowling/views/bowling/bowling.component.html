@@ -1,1 +1,23 @@
-<p>bowling works!</p>
+<table>
+  <thead>
+    <tr>
+      <td>Frame</td>
+      <td colspan="2" *ngFor="let score of scores.list; let index = index">
+        {{ index + 1 }}
+      </td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Scores</td>
+      <ng-container *ngFor="let score of scores.list">
+        <td>{{ score.first }}</td>
+        <td>{{ score.second }}</td>
+      </ng-container>
+    </tr>
+    <tr>
+      <td>Running total:</td>
+      <td  colspan="2" *ngFor="let score of scores.list"></td>
+    </tr>
+  </tbody>
+</table>

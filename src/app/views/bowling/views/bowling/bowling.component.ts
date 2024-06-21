@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { RoundsModel } from './models/rounds.model';
 
 @Component({
   selector: 'app-bowling',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrl: './bowling.component.scss'
 })
 export class BowlingComponent {
-
+  scores = new RoundsModel();
 }
