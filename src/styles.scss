@@ -1,9 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 
-$primaryBackground: #000000;
-$primaryColor: white;
-
-$secondaryBackground: #6d6d6d;
+@import './styles/colors.scss';
 
 body {
   margin: 0;
