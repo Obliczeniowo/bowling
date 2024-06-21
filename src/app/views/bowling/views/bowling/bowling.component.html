@@ -17,7 +17,9 @@
     </tr>
     <tr>
       <td>Running total:</td>
-      <td colspan="2" *ngFor="let score of scores.list"></td>
+      <td colspan="2" *ngFor="let score of scores.list; let index = index">
+        {{ scores.counted[index] || '-' }}
+      </td>
     </tr>
   </tbody>
 </table>
