@@ -2,3 +2,15 @@ td {
   text-align: center;
   padding: 10px
 }
+
+form {
+  display: flex;
+  obl-input-wrapper {
+    display: inline-block;
+    width: 150px
+  }
+  button {
+    display: inline;
+    height: 55px;
+  }
+}
