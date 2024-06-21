@@ -1,4 +1,4 @@
 export interface ScoreModel {
-  first: number;
-  second: number;
+  first?: number;
+  second?: number;
 }

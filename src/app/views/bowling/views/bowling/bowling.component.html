@@ -17,7 +17,20 @@
     </tr>
     <tr>
       <td>Running total:</td>
-      <td  colspan="2" *ngFor="let score of scores.list"></td>
+      <td colspan="2" *ngFor="let score of scores.list"></td>
     </tr>
   </tbody>
 </table>
+
+<form [formGroup]="form">
+  <obl-input-wrapper label="First score" [errors]="form.get('first')?.errors" [translations]="translationgs">
+    <input formControlName="first" oblInput type="number">
+  </obl-input-wrapper>
+
+  <obl-input-wrapper label="Second score" [errors]="form.get('second')?.errors" [translations]="translationgs">
+    <input formControlName="second" oblInput type="number">
+  </obl-input-wrapper>
+
+  <button oblButton (click)="add()">Submit</button>
+  <button oblButton (click)="reset()">Reset</button>
+</form>
