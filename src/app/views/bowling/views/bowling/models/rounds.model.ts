@@ -10,7 +10,7 @@ export class RoundsModel {
   constructor() {
     /** kind of trick to set last state from localstorage */
     const list = localStorage.getItem('list');
-    const current = localStorage.getItem('currrent');
+    const current = localStorage.getItem('current');
     if (list) {
       this.list = JSON.parse(list);
     }
