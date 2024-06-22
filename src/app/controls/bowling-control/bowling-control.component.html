@@ -1,0 +1,23 @@
+<div class="row">
+  <div [class.hited]="!bowling[9] || blocked[9]" (click)="blocked[9] === false && switch(9)"></div>
+  <div [class.hited]="!bowling[8] || blocked[8]" (click)="blocked[8] === false && switch(8)"></div>
+  <div [class.hited]="!bowling[7] || blocked[7]" (click)="blocked[7] === false && switch(7)"></div>
+  <div [class.hited]="!bowling[6] || blocked[6]" (click)="blocked[6] === false && switch(6)"></div>
+</div>
+
+<div class="row">
+  <div [class.hited]="!bowling[5] || blocked[5]" (click)="blocked[5] === false && switch(5)"></div>
+  <div [class.hited]="!bowling[4] || blocked[4]" (click)="blocked[4] === false && switch(4)"></div>
+  <div [class.hited]="!bowling[3] || blocked[3]" (click)="blocked[3] === false && switch(3)"></div>
+</div>
+
+<div class="row">
+  <div [class.hited]="!bowling[2] || blocked[2]" (click)="blocked[2] === false && switch(2)"></div>
+  <div [class.hited]="!bowling[1] || blocked[1]" (click)="blocked[1] === false && switch(1)"></div>
+</div>
+
+<div class="row">
+  <div [class.hited]="!bowling[0] || blocked[0]" (click)="blocked[0] === false && switch(0)"></div>
+</div>
+
+<div class="row">{{ counted }} / 10</div>
