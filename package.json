@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "npm run copy-assets && ng serve",
-    "build": "ng build",
+    "build": "ng build --base-href=/bowling/",
     "watch": "ng build --watch",
     "test": "ng test",
     "copy-assets": "node ./node_modules/@obliczeniowo/elementary/assets/scripts/copy.js ./src/assets/"
