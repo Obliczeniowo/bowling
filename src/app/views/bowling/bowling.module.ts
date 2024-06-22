@@ -18,9 +18,7 @@ import { ControlsModule } from '../../controls/controls.module';
   imports: [
     CommonModule,
     BowlingRoutingModule,
-    InputModule,
     ButtonsModule,
-    ReactiveFormsModule,
     ControlsModule
   ]
 })
