@@ -7,6 +7,9 @@ export class RoundsModel {
   list: ScoreModel[] = [];
   protected current = 0;
 
+  counted: number[] = [];
+  totalScore: number = 0;
+
   constructor() {
     /** kind of trick to set last state from localstorage */
     const list = localStorage.getItem('list');
@@ -19,15 +22,18 @@ export class RoundsModel {
     }
     if (!list) {
       this.setEmpty();
+    } else {
+      this.calculate();
     }
   }
 
   setEmpty() {
     this.list = new Array(10).fill(0).map(() => ({}));
     this.current = 0;
+    this.counted = [];
+    this.totalScore = 0;
   }
 
-  /** I should recalculate here and prepare all scores to avoid trigger multiple time calculating total/count */
   add(score: ScoreModel) {
     const { current } = this;
 
@@ -36,18 +42,27 @@ export class RoundsModel {
       this.current++;
     }
 
+    this.calculate();
+
     /** save state in localstorage to retrieve after user switch view or refresh page */
     localStorage.setItem('list', JSON.stringify(this.list));
     localStorage.setItem('current', JSON.stringify(this.current));
   }
 
-  /** should be pre calculated every time user add new score to make it more sufficient */
-  total() {
+  protected calculate() {
+    this.counted = [];
+    this.totalScore = 0;
+    for (let i = 0; i < 10; i++) {
+      this.counted.push(this.count(i));
+    }
+    this.totalScore = this.total();
+  }
+
+  protected total() {
     return this.list.reduce((p, _, index) => p + this.count(index), 0);
   }
 
-  /** same here as above */
-  count(index: number) {
+  protected count(index: number) {
     let sum = this.sum(index);
     let result = this.resultType(index);
 
