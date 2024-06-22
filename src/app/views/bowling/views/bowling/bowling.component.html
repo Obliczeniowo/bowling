@@ -32,11 +32,11 @@
 <div class="form">
   <div>
     <p>First round</p>
-    <app-bowling-control #first></app-bowling-control>
+    <obl-bowling-pins #first></obl-bowling-pins>
   </div>
   <div>
     <p>Second round</p>
-    <app-bowling-control [blocked]="reverse(first.bowling)" #second></app-bowling-control>
+    <obl-bowling-pins [blocked]="reverse(first.bowling)" #second></obl-bowling-pins>
   </div>
 </div>
 <button oblButton (click)="add(first, second)">Submit</button>

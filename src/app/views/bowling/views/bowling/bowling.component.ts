@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { RoundsModel } from './models/rounds.model';
-import { FormGroup } from '@angular/forms';
-import { BowlingControlComponent } from '../../../../controls/bowling-control/bowling-control.component';
+import { BowlingPinsComponent } from '@obliczeniowo/elementary/bowling-pins';
 
 @Component({
   selector: 'app-bowling',
@@ -11,7 +10,7 @@ import { BowlingControlComponent } from '../../../../controls/bowling-control/bo
 export class BowlingComponent {
   scores = new RoundsModel();
 
-  add(first: BowlingControlComponent, second: BowlingControlComponent) {
+  add(first: BowlingPinsComponent, second: BowlingPinsComponent) {
     this.scores.add({
       first: first.count(),
       second: second.count()
@@ -21,7 +20,7 @@ export class BowlingComponent {
     second.reset();
   }
 
-  reset(first: BowlingControlComponent, second: BowlingControlComponent) {
+  reset(first: BowlingPinsComponent, second: BowlingPinsComponent) {
     this.scores.setEmpty();
     first.reset();
     second.reset();

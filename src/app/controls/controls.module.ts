@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BowlingControlComponent } from './bowling-control/bowling-control.component';
+import { BowlingPinsModule } from '@obliczeniowo/elementary/bowling-pins';
 
 @NgModule({
   declarations: [
-    BowlingControlComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    BowlingPinsModule
   ],
   exports: [
-    BowlingControlComponent
+    BowlingPinsModule
   ]
 })
 export class ControlsModule { }
