@@ -11,14 +11,6 @@ import { BowlingControlComponent } from '../../../../controls/bowling-control/bo
 export class BowlingComponent {
   scores = new RoundsModel();
 
-  form!: FormGroup;
-
-  translationgs: {[error: string]: string} = {
-    max: "Maximum points is 10",
-    min: "Minimum points is 0",
-    required: "Value not set or unproper"
-  }
-
   add(first: BowlingControlComponent, second: BowlingControlComponent) {
     this.scores.add({
       first: first.count(),

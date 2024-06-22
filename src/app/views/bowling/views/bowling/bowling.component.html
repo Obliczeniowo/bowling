@@ -28,10 +28,16 @@
   </tbody>
 </table>
 
+<p>Click on pin to mark it as hitted</p>
 <div class="form">
-  <app-bowling-control #first></app-bowling-control>
-  <app-bowling-control [blocked]="reverse(first.bowling)" #second></app-bowling-control>
-
-  <button oblButton (click)="add(first, second)">Submit</button>
-  <button oblButton (click)="reset(first, second)">Reset</button>
+  <div>
+    <p>First round</p>
+    <app-bowling-control #first></app-bowling-control>
+  </div>
+  <div>
+    <p>Second round</p>
+    <app-bowling-control [blocked]="reverse(first.bowling)" #second></app-bowling-control>
+  </div>
 </div>
+<button oblButton (click)="add(first, second)">Submit</button>
+<button oblButton (click)="reset(first, second)">Reset</button>
