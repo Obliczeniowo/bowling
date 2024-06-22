@@ -17,6 +17,10 @@
     &.hited {
       background-color: red;
     }
+
+    &.blocked {
+      background-color: #ff5b5b;
+    }
   }
 }
 
