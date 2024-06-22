@@ -1,7 +1,0 @@
-<svg width="100%" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-   <path style="fill:none;stroke:var(--obl-default-icon-color);stroke-width:1.5;stroke-linejoin:round" d="M 9,1 3.202929,6.7716676 V 22.543336 H 21.008368 V 1 Z" />
-   <path style="fill:none;stroke:var(--obl-default-icon-color);stroke-width:1.5;stroke-linejoin:round" d="m 3.202929,6.7716676 c 1.0403547,-0.7221694 4.6943952,-0.4714558 6,0 C 8.3536546,5.4204021 8.3844465,2.0849332 9,1" />
-   <text xml:space="preserve" style="fill:var(--obl-default-icon-color);font-size:7.33333337px;line-height:1.25;font-family:arial;text-align:center;text-anchor:middle;stroke:none;" x="12.156777" y="15.044655" transform="scale(1.0016633,0.99833945)">
-      <tspan x="15.156777" y="15.044655" style="stroke-width:1.5;font-size:7.33333337px">JSN</tspan>
-   </text>
-</svg>
