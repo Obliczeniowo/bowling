@@ -1,11 +1,11 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-bowling-control',
   templateUrl: './bowling-control.component.html',
   styleUrl: './bowling-control.component.scss'
 })
-export class BowlingControlComponent {
+export class BowlingControlComponent implements OnChanges {
   @Input() bowling: boolean[] = new Array(10).fill(0).map(() => true);
   @Input() blocked: boolean[] = new Array(10).fill(0).map(() => false);
 
@@ -18,6 +18,17 @@ export class BowlingControlComponent {
     this.bowling = [...this.bowling];
     this.counted = this.count();
     this.changed.emit(this.count());
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['blocked']) {
+      this.blocked.forEach((b, index) => {
+        if (b) {
+          this.bowling[index] = true;
+          this.counted = this.count();
+        }
+      })
+    }
   }
 
   count() {
