@@ -47,5 +47,9 @@ jobs:
         uses: actions/upload-pages-artifact@v1
         with:
           # Upload build directory content
-          path: 'dist/bowling/'
-
+          path: 'dist/bowling/browser/'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
