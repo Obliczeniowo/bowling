@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RoundsModel } from './models/rounds.model';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormGroup } from '@angular/forms';
+import { BowlingControlComponent } from '../../../../controls/bowling-control/bowling-control.component';
 
 @Component({
   selector: 'app-bowling',
@@ -18,26 +19,23 @@ export class BowlingComponent {
     required: "Value not set or unproper"
   }
 
-  constructor(fb: FormBuilder) {
-    this.form = fb.group(
-      {
-        'first': [ null, [Validators.required, Validators.min(0), Validators.max(10)]],
-        'second': [ null, [Validators.required, Validators.min(0), Validators.max(10)]]
-      }
-    )
+  add(first: BowlingControlComponent, second: BowlingControlComponent) {
+    this.scores.add({
+      first: first.count(),
+      second: second.count()
+    })
+
+    first.reset();
+    second.reset();
   }
 
-  add() {
-    if (this.form.valid) {
-      this.scores.add(this.form.getRawValue());
-      this.form.setValue({ first: null, second: null});
-      this.form.markAsUntouched();
-    } else {
-      this.form.markAllAsTouched();
-    }
-  }
-
-  reset() {
+  reset(first: BowlingControlComponent, second: BowlingControlComponent) {
     this.scores.setEmpty();
+    first.reset();
+    second.reset();
+  }
+
+  reverse(bowling: boolean[]) {
+    return bowling.map(b => !b);
   }
 }

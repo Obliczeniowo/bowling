@@ -28,15 +28,10 @@
   </tbody>
 </table>
 
-<form [formGroup]="form">
-  <obl-input-wrapper label="First score" [errors]="form.get('first')?.errors" [translations]="translationgs">
-    <input formControlName="first" oblInput type="number">
-  </obl-input-wrapper>
+<div class="form">
+  <app-bowling-control #first></app-bowling-control>
+  <app-bowling-control [blocked]="reverse(first.bowling)" #second></app-bowling-control>
 
-  <obl-input-wrapper label="Second score" [errors]="form.get('second')?.errors" [translations]="translationgs">
-    <input formControlName="second" oblInput type="number">
-  </obl-input-wrapper>
-
-  <button oblButton (click)="add()">Submit</button>
-  <button oblButton (click)="reset()">Reset</button>
-</form>
+  <button oblButton (click)="add(first, second)">Submit</button>
+  <button oblButton (click)="reset(first, second)">Reset</button>
+</div>

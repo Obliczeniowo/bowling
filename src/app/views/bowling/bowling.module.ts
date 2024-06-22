@@ -6,8 +6,8 @@ import { ButtonsModule } from '@obliczeniowo/elementary/buttons';
 import { BowlingRoutingModule } from './bowling-routing.module';
 import { BowlingComponent } from './views/bowling/bowling.component';
 import { NavigationComponent } from './views/navigation/navigation.component';
-import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ControlsModule } from '../../controls/controls.module';
 
 
 @NgModule({
@@ -20,7 +20,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     BowlingRoutingModule,
     InputModule,
     ButtonsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ControlsModule
   ]
 })
 export class BowlingModule { }
