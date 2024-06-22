@@ -25,9 +25,9 @@ export class BowlingControlComponent implements OnChanges {
       this.blocked.forEach((b, index) => {
         if (b) {
           this.bowling[index] = true;
-          this.counted = this.count();
         }
       })
+      this.counted = this.count();
     }
   }
 
