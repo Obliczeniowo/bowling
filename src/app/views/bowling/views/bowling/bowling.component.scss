@@ -18,8 +18,14 @@ td {
     width: 150px
   }
 
-  button {
-    display: inline;
-    height: 55px;
+  p {
+    text-align: center;
   }
+}
+
+button {
+  display: inline;
+  height: 55px;
+  margin-top: 5px;
+  width: 120px
 }
