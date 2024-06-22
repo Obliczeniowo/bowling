@@ -1,3 +1,8 @@
+:host {
+  display: block;
+  padding: 10px;
+}
+
 td {
   text-align: center;
   padding: 10px;
@@ -6,10 +11,13 @@ td {
 
 form {
   display: flex;
+  margin-top: 10px;
+
   obl-input-wrapper {
     display: inline-block;
     width: 150px
   }
+
   button {
     display: inline;
     height: 55px;

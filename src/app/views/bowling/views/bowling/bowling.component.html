@@ -19,10 +19,10 @@
     <tr>
       <td>Running total:</td>
       <td colspan="2" *ngFor="let score of scores.list; let index = index">
-        {{ scores.count(index) }}
+        {{ scores.counted[index] }}
       </td>
       <td>
-        {{ scores.total() }}
+        {{ scores.totalScore }}
       </td>
     </tr>
   </tbody>
