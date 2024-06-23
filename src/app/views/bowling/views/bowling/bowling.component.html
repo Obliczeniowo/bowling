@@ -36,7 +36,7 @@
   </div>
   <div>
     <p>Second round</p>
-    <obl-bowling-pins [blocked]="reverse(first.bowling)" #second></obl-bowling-pins>
+    <obl-bowling-pins [blocked]="reverse(first.bowling)" [disabled]="scores.getCurrent() > 10" #second></obl-bowling-pins>
   </div>
 </div>
 <button oblButton (click)="add(first, second)">Submit</button>
