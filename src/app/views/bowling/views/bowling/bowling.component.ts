@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RoundsModel } from './models/rounds.model';
-import { BowlingPinsComponent } from '@obliczeniowo/elementary/bowling-pins';
+import { BowlingRoundComponent } from '@obliczeniowo/elementary/bowling-pins';
 
 @Component({
   selector: 'app-bowling',
@@ -10,23 +10,14 @@ import { BowlingPinsComponent } from '@obliczeniowo/elementary/bowling-pins';
 export class BowlingComponent {
   scores = new RoundsModel();
 
-  add(first: BowlingPinsComponent, second: BowlingPinsComponent) {
-    this.scores.add({
-      first: first.count(),
-      second: second.count()
-    })
+  add(round: BowlingRoundComponent) {
+    this.scores.add({ ...round.scores });
 
-    first.reset();
-    second.reset();
+    round.reset();
   }
 
-  reset(first: BowlingPinsComponent, second: BowlingPinsComponent) {
+  reset(round: BowlingRoundComponent) {
     this.scores.setEmpty();
-    first.reset();
-    second.reset();
-  }
-
-  reverse(bowling: boolean[]) {
-    return bowling.map(b => !b);
+    round.reset();
   }
 }
