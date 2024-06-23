@@ -29,18 +29,8 @@
 </table>
 
 <p>Click on pin to mark it as hitted</p>
-<div class="form">
-  <div>
-    <p>First round</p>
-    <obl-bowling-pins #first></obl-bowling-pins>
-  </div>
-  <div>
-    <p>Second round</p>
-    <obl-bowling-pins [blocked]="reverse(first.bowling)" [disabled]="scores.getCurrent() > 10"
-      #second></obl-bowling-pins>
-  </div>
-</div>
+<obl-bowling-round [current]="scores.getCurrent()" #round></obl-bowling-round>
 <div class="row">
-  <button oblButton (click)="add(first, second)">Submit</button>
-  <button oblButton (click)="reset(first, second)">Reset</button>
+  <button oblButton (click)="add(round)">Submit</button>
+  <button oblButton (click)="reset(round)">Reset</button>
 </div>
