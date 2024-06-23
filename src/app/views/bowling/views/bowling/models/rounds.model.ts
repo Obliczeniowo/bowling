@@ -27,6 +27,10 @@ export class RoundsModel {
     }
   }
 
+  getCurrent() {
+    return this.current;
+  }
+
   setEmpty() {
     this.list = new Array(10).fill(0).map(() => ({}));
     this.current = 0;
@@ -37,9 +41,14 @@ export class RoundsModel {
   add(score: ScoreModel) {
     const { current } = this;
 
-    if (current < 10) {
+    if (current < this.max()) {
       this.list[this.current] = { ...score };
       this.current++;
+      if (this.current === 10 && this.max() === 11 && this.list.length === 10) {
+        this.list.push({});
+      } else if (this.current === 11 && this.max() === 12 && this.list.length === 11) {
+        this.list.push({});
+      }
     }
 
     this.calculate();
@@ -47,6 +56,16 @@ export class RoundsModel {
     /** save state in localstorage to retrieve after user switch view or refresh page */
     localStorage.setItem('list', JSON.stringify(this.list));
     localStorage.setItem('current', JSON.stringify(this.current));
+  }
+
+  protected max() {
+    if (this.resultType(8) === 'Strike' && this.resultType(9) === 'Strike') {
+      if (this.resultType(10) === 'Strike') {
+        return 12;
+      }
+      return 11;
+    }
+    return 10;
   }
 
   protected calculate() {
@@ -59,7 +78,7 @@ export class RoundsModel {
   }
 
   protected total() {
-    return this.list.reduce((p, _, index) => p + this.count(index), 0);
+    return this.list.reduce((p, _, index) => p + (index < 10 ? this.count(index) : 0), 0);
   }
 
   protected count(index: number) {
