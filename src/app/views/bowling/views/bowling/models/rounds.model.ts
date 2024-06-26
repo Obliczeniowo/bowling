@@ -59,7 +59,7 @@ export class RoundsModel {
   }
 
   protected max() {
-    if (this.resultType(8) === 'Strike' && this.resultType(9) === 'Strike') {
+    if (this.resultType(9) === 'Strike') {
       if (this.resultType(10) === 'Strike') {
         return 12;
       }
