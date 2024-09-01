@@ -2,25 +2,29 @@
   <thead>
     <tr>
       <td>Frame</td>
-      <td colspan="2" *ngFor="let score of scores.list; let index = index">
-        {{ index + 1 }}
-      </td>
+      @for(score of scores.list; track $index) {
+        <td colspan="2">
+          {{ $index + 1 }}
+        </td>
+      }
       <td>Total score</td>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>Scores</td>
-      <ng-container *ngFor="let score of scores.list">
+      @for (score of scores.list; track $index) {
         <td>{{ score.first }}</td>
         <td>{{ score.second }}</td>
-      </ng-container>
+      }
     </tr>
     <tr>
       <td>Running total:</td>
-      <td colspan="2" *ngFor="let score of scores.list; let index = index">
-        {{ scores.counted[index] }}
-      </td>
+      @for(score of scores.list; track $index) {
+        <td colspan="2">
+          {{ scores.counted[$index] }}
+        </td>
+      }
       <td>
         {{ scores.totalScore }}
       </td>
@@ -28,8 +32,10 @@
   </tbody>
 </table>
 
-<p>Click on pin to mark it as hitted</p>
+<p>Click on pin to mark it as hit</p>
+
 <obl-bowling-round [current]="scores.getCurrent()" #round></obl-bowling-round>
+
 <div class="row">
   <button oblButton (click)="add(round)">Submit</button>
   <button oblButton (click)="reset(round)">Reset</button>
