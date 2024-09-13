@@ -1,7 +1,7 @@
 import { ScoreModel } from "./score.model";
 
 /**
- * Not fully implemented scoring logic for case of Strike on 9-th and 10-th round that extend new posibility to get more scores
+ * Not fully implemented scoring logic for case of Strike on 9-th and 10-th round that extend new possibility to get more scores
  */
 export class RoundsModel {
   list: ScoreModel[] = [];
@@ -11,7 +11,7 @@ export class RoundsModel {
   totalScore: number = 0;
 
   constructor() {
-    /** kind of trick to set last state from localstorage */
+    /** kind of trick to set last state from local storage */
     const list = localStorage.getItem('list');
     const current = localStorage.getItem('current');
     if (list) {
