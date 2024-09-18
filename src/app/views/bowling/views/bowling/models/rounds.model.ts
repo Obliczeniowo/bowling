@@ -53,7 +53,7 @@ export class RoundsModel {
 
     this.calculate();
 
-    /** save state in localstorage to retrieve after user switch view or refresh page */
+    /** save state in localStorage to retrieve after user switch view or refresh page */
     localStorage.setItem('list', JSON.stringify(this.list));
     localStorage.setItem('current', JSON.stringify(this.current));
   }
